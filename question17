@@ -1,0 +1,11 @@
+function calculateAverage(scores) {
+  let total = 0;
+  for (let i = 0; i < scores.length; i++) { // fixed: < not <=
+    total += scores[i];
+  }
+  let average = total / scores.length;
+  return average; // fixed: return instead of console.log
+}
+
+const result = calculateAverage([70, 80, 90]);
+console.log("Average:", result); // Average: 80

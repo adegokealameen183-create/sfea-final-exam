@@ -1,0 +1,15 @@
+const numbers = [12, 7, 4, 19, 8, 21, 10];
+
+let sumEven = 0;
+let countOdd = 0;
+
+for (let i = 0; i < numbers.length; i++) {
+  if (numbers[i] % 2 === 0) {
+    sumEven += numbers[i]; // even: 12+4+8+10 = 34
+  } else {
+    countOdd++; // odd: 7,19,21 = 3 numbers
+  }
+}
+
+console.log("Sum of even numbers:", sumEven); // 34
+console.log("Number of odd numbers:", countOdd); // 3

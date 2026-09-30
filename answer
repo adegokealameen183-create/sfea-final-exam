@@ -1,0 +1,47 @@
+// 16. Objects[3 marks]
+Given:javascriptconst student = {
+    name: "David",
+    age: 21,
+    course: "Frontend Development",
+    scores: [75, 82, 68]
+}; a.Display the student's name[1]javascriptconsole.log(student.name);
+// OR
+console.log(student["name"]); b.Add level: "Intermediate"[1]javascriptstudent.level = "Intermediate";
+console.log(student); c.Change the age to 22[1]javascriptstudent.age = 22;
+console.log(student);Full answer together: javascriptconsole.log(student.name); // David
+student.level = "Intermediate";
+student.age = 22;
+// Result: { name: "David", age: 22, course: "Frontend Development", scores: [75, 82, 68], level: "Intermediate" }17. JavaScript Debugging [3 marks]
+Problems identified in the code:
+Loop condition bug: i <= scores.length should be i < scores.length.With <= it goes one extra iteration and scores[3] is undefined, so total becomes NaN.No return: The function only console.log(average) but doesn't return it. So const result will be undefined.Corrected version:javascriptfunction calculateAverage(scores) {
+let total = 0;
+for (let i = 0; i < scores.length; i++) { // fixed: < not <=
+    total += scores[i];
+}
+let average = total / scores.length;
+return average; // fixed: return instead of console.log
+}
+
+const result = calculateAverage([70, 80, 90]);
+console.log("Average:", result); // Average: 8018. DOM and Events [4 marks]
+Given: html < input id = "nameInput" type = "text" >
+<button id="greetBtn">Greet</button>
+<p id="message"></p>Write JavaScript that gets input value when button is clicked, Displays Hello, NAME inside paragraph, If input is empty displays Please enter your name.javascript// Get elements
+const nameInput = document.getElementById("nameInput");
+const greetBtn = document.getElementById("greetBtn");
+const message = document.getElementById("message");
+
+// Add click event
+greetBtn.addEventListener("click", function () {
+    const name = nameInput.value.trim(); // get input value
+
+    if (name === "") {
+        message.textContent = "Please enter your name.";
+    } else {
+        message.textContent = `Hello, ${name}`;
+    }
+});Alternative shorter version: javascriptdocument.getElementById("greetBtn").addEventListener("click", () => {
+    let name = document.getElementById("nameInput").value;
+    document.getElementById("message").textContent =
+        name ? `Hello, ${name}` : "Please enter your name.";
+});//

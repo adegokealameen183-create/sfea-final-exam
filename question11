@@ -1,0 +1,27 @@
+function getGrade(score) {
+  // Check for invalid score first
+  if (score < 0 || score > 100) {
+    return "Invalid score";
+  }
+  
+  if (score >= 70 && score <= 100) {
+    return "A";
+  } else if (score >= 60) {
+    return "B";
+  } else if (score >= 50) {
+    return "C";
+  } else if (score >= 40) {
+    return "D";
+  } else {
+    return "F";
+  }
+}
+
+// Testing
+console.log(getGrade(85));  // A
+console.log(getGrade(65));  // B
+console.log(getGrade(55));  // C
+console.log(getGrade(45));  // D
+console.log(getGrade(20));  // F
+console.log(getGrade(105)); // Invalid score
+console.log(getGrade(-5));  // Invalid score

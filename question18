@@ -1,0 +1,15 @@
+// Get elements
+const nameInput = document.getElementById("nameInput");
+const greetBtn = document.getElementById("greetBtn");
+const message = document.getElementById("message");
+
+// Add click event
+greetBtn.addEventListener("click", function() {
+  const name = nameInput.value.trim(); // get input value
+
+  if (name === "") {
+    message.textContent = "Please enter your name.";
+  } else {
+    message.textContent = `Hello, ${name}`;
+  }
+});
